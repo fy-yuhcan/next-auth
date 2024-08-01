@@ -6,7 +6,8 @@ import Link from "next/link";
 import { ReactNode, useState } from "react";
 import MobileNav from "./mobileNav";
 
-//itemsの型を宣言する必要があるinterface->typeに置き換え可能(ここは調べないと違いがよくわからない)
+//itemsの型を宣言する必要があるinterface->typeに置き換え可能(ここは調べないと違いがよくわからない)+
+// items?:NavItem[];とすると,MobileNavに渡すitems={items}がundifiendになってしまう可能性があるため、エラーになる
 type MainNavProps ={
     items?: NavItem[];
     children?:ReactNode
@@ -33,9 +34,9 @@ export default function MainNav({items}:MainNavProps) {
             <button className="md:hidden flex items-center" onClick={()=>setShowMobileMenu(!showMobileMenu)}>
                 <span>メニュー</span>
             </button>
-            
+
             {/*&&で括ることでshowMobileMenuがtrueの時、MobileNavを表示する*/}
-            {showMobileMenu && (<MobileNav></MobileNav>)}
+            {showMobileMenu && (<MobileNav items={items ?? []}></MobileNav>)}
         </div>
     )
 }
