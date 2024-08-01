@@ -2,8 +2,8 @@ import { NavItem } from "@/types";
 import Link from "next/link";
 import { ReactNode } from "react";
 
-//itemsの型を宣言する必要がある
-interface MainNavProps{
+//itemsの型を宣言する必要があるinterface->typeに置き換え可能(ここは調べないと違いがよくわからない)
+type MainNavProps ={
     items?: NavItem[];
     children?:ReactNode
 }
