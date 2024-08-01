@@ -1,5 +1,6 @@
 import { SiteConfig } from "@/types";
 
+//サイト情報
 export const siteConfig: SiteConfig= {
     name: "post writer",
     description: "",

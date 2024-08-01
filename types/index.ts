@@ -1,3 +1,4 @@
+//型定義
 export type SiteConfig ={
     name:string;
     description: string;
