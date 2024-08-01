@@ -9,3 +9,14 @@ export type SiteConfig ={
         github: string;
     }
 }
+
+//marketingConfigの型定義
+export type NavItem ={
+    title: string;
+    href: string;
+    disabled?:boolean;
+}
+//追加のプロパティを持たせるため
+export type MarketingConfig ={
+    mainNav:NavItem[];
+}
