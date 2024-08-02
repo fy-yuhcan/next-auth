@@ -1,4 +1,5 @@
 import MainNav from "@/components/mainnav";
+import SiteFooter from "@/components/siteFooker";
 import { buttonVariants } from "@/components/ui/button";
 import { marketingConfig } from "@/config/marketing";
 import { cn } from "@/lib/utils";
@@ -19,6 +20,7 @@ export default function marketingLayout({children}:{children:React.ReactNode}){
             <main>
                 {children}
             </main>
+            <SiteFooter/>
         </div>
     )
 }
