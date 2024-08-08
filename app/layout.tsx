@@ -20,6 +20,8 @@ export const metadata: Metadata = {
       url:siteConfig.url,
     },
   ],
+  //openGraphを使うためにmetadatabaseを指定する必要がある(13.5.4にダウングレードする場合)
+  metadataBase: new URL(siteConfig.url),
   openGraph:{
     type: "website",
     locale:"ja",
