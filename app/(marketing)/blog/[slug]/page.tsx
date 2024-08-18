@@ -20,7 +20,7 @@ export default async function Postpage({params}:{params: {slug: string}}) {
      console.log(post)
 
     return(
-        <article className="container mx-w-3xl py-6 lg:py-10">
+        <article className="container max-w-4xl py-6 lg:py-10">
             <div>
                 {post.date && (<time>Published on {format(post.date,"yyyy/MM/dd")}</time>)}
                 <h1 className="mt-2 font-extrabold text-4xl lg:text-5xl leading-tight">{post.title}</h1>

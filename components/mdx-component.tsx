@@ -12,7 +12,7 @@ const components = {
 export const Mdx = ({code}:{code: string})=>{
     const Component = useMDXComponent(code);
     return (
-        <div>
+        <div className="prose-xl lg:prose-xl max-w-full">
             <Component components={components}/>
         </div>
     )
