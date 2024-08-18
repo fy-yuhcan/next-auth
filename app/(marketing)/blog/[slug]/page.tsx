@@ -3,6 +3,7 @@ import { Mdx } from "@/components/mdx-component";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -10,6 +11,25 @@ import { notFound } from "next/navigation";
 async function getPostFromSlug(slug:string) {
     const post = allPosts.find((post)=>post.slugAsParams === slug)
     return post
+}
+
+//paramsのオブジェクトにslugというキーが含まれる文字列型、メタデータを返すことを型定義している
+export async function generateMetadata({params}:{params: {slug: string}}):Promise<Metadata> {
+    const page = await getPostFromSlug(params.slug)
+
+    if (!page){
+        return {}
+    }
+
+    return {
+        title: page.title,
+        description: page.description,
+        openGraph:{
+            title: page.title,
+            description: page.description,
+        }
+        
+    }
 }
 
 export default async function Postpage({params}:{params: {slug: string}}) {
