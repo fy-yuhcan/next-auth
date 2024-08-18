@@ -19,9 +19,10 @@ export default function BlogPage(){
     <hr className="my-8"/>
     {posts.map((post,index)=>(
         <article key={index}>
-            {post.image && <Image src={post.image} width={800} height={452} alt="Blog Image"/>}
+            {post.image && <Image src={post.image} width={800} height={452} alt="Blog Image" className="rounded-md border bg-muted"/>}
             <h2 className="text-2xl font-extrabold">{post.title}</h2>
             <p className="text-muted-foreground">{post.description}</p>
+            <p className="text-muted-foreground">{post.date}</p>
         </article>
     ))}
     </div>
