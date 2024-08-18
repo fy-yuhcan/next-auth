@@ -5,7 +5,6 @@ import Link from "next/link";
 
 export default function BlogPage(){
     const posts = allPosts
-    console.log(posts);
   return (
     <div className="container max-w-4xl py-6 lg:py-10">
     <div>
