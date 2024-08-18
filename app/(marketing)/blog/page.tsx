@@ -1,5 +1,7 @@
 import { allPosts } from "@/.contentlayer/generated"
+import { format } from "date-fns";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BlogPage(){
     const posts = allPosts
@@ -17,14 +19,17 @@ export default function BlogPage(){
         </div>
     </div>
     <hr className="my-8"/>
+    <div className="grid sm:grid-cols-2 gap-10">
     {posts.map((post,index)=>(
-        <article key={index}>
+        <article key={index} className="relative flex flex-col space-x-2">
             {post.image && <Image src={post.image} width={800} height={452} alt="Blog Image" className="rounded-md border bg-muted"/>}
             <h2 className="text-2xl font-extrabold">{post.title}</h2>
             <p className="text-muted-foreground">{post.description}</p>
-            <p className="text-muted-foreground">{post.date}</p>
+            <p className="text-muted-foreground">{format(post.date,"yyyy/MM/dd")}</p>
+            <Link href={post.slug} className="absolute inset-0"></Link>
         </article>
     ))}
+    </div>
     </div>
   )
 }
