@@ -10,7 +10,9 @@ import { useState } from "react";
 
 
 export default function UserAuthForm() {
-    const [isGithubLoading,setIsGithubLoading] = useState<Boolean>(false)
+    const [isGithubLoading, setIsGithubLoading] = useState<Boolean>(false)
+    const [isGoogleLoading, setIsGoogleLoading] = useState<Boolean>(false)
+    
     return (
         <div className="grid gap-2">
             <form>
@@ -31,10 +33,18 @@ export default function UserAuthForm() {
                 </div>
             </div>
 
-            <button className={cn(buttonVariants({ variant: "outline" }))} onClick={() => {
-                setIsGithubLoading(true)
-                signIn("github")
-            }}>{ isGithubLoading? (<Icon.spinner className="animate-spin"/>):(<Icon.github />)}GitHub</button>
+            <div className="flex flex-col gap-3">
+                <button className={cn(buttonVariants({ variant: "outline" }))} onClick={() => {
+                    setIsGithubLoading(true)
+                    signIn("github")
+                    }}>{isGithubLoading ? (<Icon.spinner className="animate-spin" />) : (<Icon.github />)}GitHub
+                </button>
+                <button className={cn(buttonVariants({ variant: "outline" }))} onClick={() => {
+                    setIsGoogleLoading(true)
+                    signIn("google")
+                    }}>{isGoogleLoading ? (<Icon.spinner className="animate-spin" />) : (<Icon.google />)}Google
+                </button>
+            </div>
         </div>
     )
 }
